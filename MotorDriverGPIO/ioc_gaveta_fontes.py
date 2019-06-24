@@ -77,11 +77,11 @@ class RF_MotorControllers_Driver(Driver):
             for i in range(8):
                 ADC1_values[i] = ((ADC1_values[i] / 10.0) / 4095.0) * 5.0
                 ADC2_values[i] = ((ADC2_values[i] / 10.0) / 4095.0) * 5.0
-            ADC2_values[1] = ADC2_values[1] * 11
+            #ADC2_values[1] = ADC2_values[1] * 11
 
             self.setParam("RA-RaBO01:RF-LLRFPlDrivers:VoltPos5V-Mon", ADC2_values[0])
             self.setParam("RA-RaBO01:RF-LLRFPlDrivers:Current5V-Mon", (ADC2_values[2] - 0.5) / 0.4)
-            self.setParam("RA-RaBO01:RF-LLRFPlDrivers:VoltPos48V-Mon", ADC2_values[1])
+            self.setParam("RA-RaBO01:RF-LLRFPlDrivers:VoltPos48V-Mon", ADC2_values[1] * 11)
 
             if (ADC1_values[4] > 2.5):
                 self.setParam("RA-RaBO01:RF-LLRFPlDrivers:Dr1Enbl-Mon", 1)

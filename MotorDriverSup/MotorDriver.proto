@@ -1,0 +1,14 @@
+ReplyTimeout=1000;
+ReadTimeout =1000;
+InTerminator=CR LF;
+
+getData {
+    separator=', ';
+    out "DATA?";
+    in  "DATA [%f]";
+}
+
+setEnbl {
+    out "DRV_ENBL %i";
+    in  "DRV_ENBL %i";
+}

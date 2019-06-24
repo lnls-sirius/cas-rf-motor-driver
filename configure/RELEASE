@@ -1,0 +1,11 @@
+STREAM_PROTOCOL_PATH = $(TOP)/db
+
+ASYN=/opt/epics-R3.15.5/modules/asyn4-35
+STREAM=/opt/epics-R3.15.5/modules/StreamDevice-2.8.8
+AUTOSAVE=/opt/epics-R3.15.5/modules/autosave-R5-9
+CALC=/opt/epics-R3.15.5/modules/synApps/calc-R3-7-1
+EPICS_BASE=/opt/epics-R3.15.5/base
+
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/configure/RELEASE.local
+

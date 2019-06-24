@@ -1,0 +1,81 @@
+
+record(calc, "$(P)$(R)ADC1_value0-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[0] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value1-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[1] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value2-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[2] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value3-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[3] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value4-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[4] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value5-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[5] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value6-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[6] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC1_value7-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[7] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value0-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[8] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value1-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[9] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value2-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[10] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value3-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[11] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value4-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[12] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value5-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[13] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value6-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[14] CP MSS")
+}
+
+record(calc, "$(P)$(R)ADC2_value7-Mon"){
+    field(CALC, "((A/10)/4095.)*5.")
+    field(INPA, "$(P)$(R)Data-Mon.VAL[15] CP MSS")
+}
+
