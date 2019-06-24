@@ -11,7 +11,7 @@ epicsEnvSet("R","")
 dbLoadDatabase "dbd/MotorDriver.dbd"
 MotorDriver_registerRecordDeviceDriver pdbbase
 
-drvAsynIPPortConfigure("L0", "unix://$(TOP)/MotorDriverGPIO/socket")
+drvAsynIPPortConfigure("L0", "unix://$(TOP)/MotorDriverGPIO/unix-socket")
 
 ## Load record instances
 dbLoadRecords("db/MotorDriverData.db","P=$(P),R=$(R),PORT=L0,A=0")
