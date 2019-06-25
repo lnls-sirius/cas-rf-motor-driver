@@ -20,7 +20,7 @@ make db
 cd ..
 make
 ```
-Install the systemd services. There is a service file for each `iocBoot/MotorDrive/*.cmd`, the EPICS engineer should install the corresponding one; DEVICE is a placeholder. 
+Install the systemd services. There is a service file for each `iocBoot/MotorDriver/*.cmd`, the EPICS engineer should install the corresponding one. DEVICE is a placeholder. 
 ```
 cp services/cas-rf-motor-driver-gpio.service /etc/systemd/system/cas-rf-motor-driver-gpio.service
 cp services/cas-rf-motor-driver-ioc-<DEVICE>.service /etc/systemd/system/cas-rf-motor-driver-ioc-<DEVICE>.service
