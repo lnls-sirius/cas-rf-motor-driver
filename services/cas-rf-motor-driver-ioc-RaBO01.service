@@ -1,0 +1,20 @@
+[Unit]
+Description=Sirius RF motor driver RaBO01 - IOC
+Wants=network-online.target
+After=network-online.target
+
+After=cas-rf-motor-driver-gpio.service
+
+[Service]
+Restart=always
+RestartSec=10
+Type=simple
+
+WorkingDirectory=/root/cas-rf-motor-driver/iocBoot/iocMotorDriver/
+ExecStart=/usr/bin/procServ -d --chdir /root/cas-rf-motor-driver/iocBoot/iocMotorDriver 20200 ./st-RaBO01.cmd
+
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

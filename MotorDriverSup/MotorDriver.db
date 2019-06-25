@@ -1,0 +1,128 @@
+record(waveform, "$(P)$(R)Data-Mon"){
+    field(DESC, "Raw ADC Data")
+    field(SCAN, "1 second")
+    field(DTYP, "stream")
+    field(INP,  "@MotorDriver.proto getData $(PORT) $(A)")
+    field(FTVL, "FLOAT")
+    field(NELM, "16")
+}
+
+# ADC2_values[0]
+record(ai, "$(P)$(R)RF-LLRFPlDrivers:VoltPos5V-Mon"){
+    field(INP,  "$(P)$(R)ADC2_value0-Mon CP MSS")
+    field(DTYP, "Soft Channel")
+    field(PREC, "3")
+    field(EGU,  "V")
+}
+
+# (ADC2_values[2] - 0.5) / 0.4)
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Current5V-Mon"){
+    field(CALC, "(A - 0.5)/0.4")
+    field(INPA, "$(P)$(R)ADC2_value2-Mon CP MSS")
+    field(PREC, "3")
+    field(EGU,  "A")
+}
+
+# ADC2_values[1] * 11
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:VoltPos48V-Mon"){
+    field(CALC, "A*11")
+    field(INPA, "$(P)$(R)ADC2_value1-Mon CP MSS")
+    field(PREC, "3")
+    field(EGU,  "V")
+}
+
+# 1 if (ADC1_values[4] > 2.5) else 0
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc"){
+    field(CALC, "(A>2.5)?1:0")
+    field(INPA, "$(P)$(R)ADC1_value4-Mon CP MSS")
+}
+record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon"){
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc CP MSS")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+}
+
+# 1 if (ADC1_values[5] > 2.5) else 0
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon_calc"){
+    field(CALC, "(A>2.5)?1:0")
+    field(INPA, "$(P)$(R)ADC1_value5-Mon CP MSS")
+}
+record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon"){
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon_calc CP MSS")
+    field(ZNAM, "Fail")
+    field(ONAM, "Normal")
+}
+
+# ((ADC1_values[3] - 0.5) / 0.4)
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Current-Mon"){
+    field(CALC, "(A - 0.5)/0.4")
+    field(INPA, "$(P)$(R)ADC1_value3-Mon CP MSS")
+    field(PREC, "3")
+    field(EGU,  "A")
+}
+
+# ADC1_values[6]
+record(ai, "BO-05D:RF-P5Cav:Pl1Pos-Mon"){
+    field(INP, "$(P)$(R)ADC1_value6-Mon CP MSS")
+    field(DTYP, "Soft Channel")
+    field(PREC, "3")
+    field(EGU,  "V")
+}
+
+# 1 if (ADC2_values[4] > 2.5) else 0
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc"){
+    field(CALC, "(A>2.5)?1:0")
+    field(INPA, "$(P)$(R)ADC2_value4-Mon CP MSS")
+}
+record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon"){
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc CP MSS")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+}
+
+# 1 if (ADC2_values[5] > 2.5) else 0
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon_calc"){
+    field(CALC, "(A>2.5)?1:0")
+    field(INPA, "$(P)$(R)ADC2_value5-Mon CP MSS")
+}
+record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon"){
+    field(DTYP, "Raw Soft Channel")
+    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon_calc CP MSS")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+}
+
+# (ADC2_values[3] - 0.5) / 0.4
+record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Current-Mon"){
+    field(CALC, "(A - 0.5)/0.4")
+    field(INPA, "$(P)$(R)ADC2_value3-Mon CP MSS")
+    field(PREC, "3")
+    field(EGU,  "A")
+}
+
+# ADC2_values[6]
+record(ai, "BO-05D:RF-P5Cav:Pl2Pos-Mon"){
+    field(INP, "$(P)$(R)ADC2_value6-Mon CP MSS")
+    field(DTYP, "Soft Channel")
+    field(PREC, "3")
+    field(EGU,  "V")
+}
+
+record(bo, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel"){
+    field(DTYP, "stream")
+    field(OUT,  "@MotorDriver.proto setEnbl $(PORT) $(A)")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+}
+
+# if ((self.getParam("$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon") == 1) or (self.getParam("$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon") == 1))
+record(calcout, "$(P)$(R)RF-LLRFPlDrivers:DrAutoEnbl-Sel"){
+    field(CALC, "A=1||B=1")
+    field(INPA, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon CP MSS")
+    field(INPB, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon CP MSS")
+    field(OOPT, "When Non-zero")
+    field(OUT,  "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel.RVAL CA")
+}
