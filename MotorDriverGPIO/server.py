@@ -54,7 +54,7 @@ class Comm():
                     response = 'DATA ' + self.motor.read()
                 else :
                     try:
-                        match = re.search(r'DRV_ENBL (0|1)', command)
+                        match = re.search(r'DRV_ENBL (0|1)$', command)
                         if hasattr(match, 'group'):
                             response = self.motor.drvEnbl(int(match.group(1)))
                     except:

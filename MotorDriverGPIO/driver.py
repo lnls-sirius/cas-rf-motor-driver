@@ -20,6 +20,8 @@ class RF_MotorControllers_Driver():
         self.ADC1 = converters.ADC()
         self.ADC2 = converters.ADC2()
 
+        self.drvEnbl(1)
+
     def data(self):
         ADC1_values = [0] * 8
         ADC2_values = [0] * 8
@@ -42,5 +44,3 @@ class RF_MotorControllers_Driver():
             GPIO.output(DRIVER_ENABLE_PIN, GPIO.LOW)
         else:
             GPIO.output(DRIVER_ENABLE_PIN, GPIO.HIGH)
-
-        return True
