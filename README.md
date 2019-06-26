@@ -11,6 +11,8 @@ Authors: Claudio Carneiro, Eduardo Coelho
 |STREAM|/opt/epics-R3.15.5/modules/StreamDevice-2.8.8|
 |AUTOSAVE|/opt/epics-R3.15.5/modules/autosave-R5-9|
 
+[https://wiki-sirius.lnls.br/mediawiki/index.php/CON:Setting_up_EPICS](Setting up EPICS)
+
 ## Installation
 ```
 make clean
