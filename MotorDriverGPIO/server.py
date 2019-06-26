@@ -6,6 +6,9 @@ import re
 from driver import RF_MotorControllers_Driver
 logger = logging.getLogger()
 
+class ResponseType():
+    NO_RESPONSE = "NO_RESPONSE"
+
 class Comm():
     def __init__(self, unix_socket_path, *args, **kwargs):
         self.unix_socket_path = unix_socket_path
@@ -51,7 +54,9 @@ class Comm():
                 response = ResponseType.NO_RESPONSE
 
                 if command == 'DATA?':
-                    response = 'DATA ' + self.motor.read()
+                    response = 'DATA ' + self.motor.data()
+                elif command == 'DRV_STS?':
+                    response = self.motor.drvSts()
                 else :
                     try:
                         match = re.search(r'DRV_ENBL (0|1)$', command)

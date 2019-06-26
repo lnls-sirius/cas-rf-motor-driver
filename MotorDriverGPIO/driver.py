@@ -19,8 +19,9 @@ class RF_MotorControllers_Driver():
     def __init__(self):
         self.ADC1 = converters.ADC()
         self.ADC2 = converters.ADC2()
-
+        self.drvStsVal = 0
         self.drvEnbl(1)
+
 
     def data(self):
         ADC1_values = [0] * 8
@@ -33,14 +34,18 @@ class RF_MotorControllers_Driver():
                 ADC1_values[j] += ADC1_readings[j]
                 ADC2_values[j] += ADC2_readings[j]
 
-        for i in range(8):
-            ADC1_values[i] = ((ADC1_values[i] / 10.0) / 4095.0) * 5.0
-            ADC2_values[i] = ((ADC2_values[i] / 10.0) / 4095.0) * 5.0
-
         return str(ADC1_values + ADC2_values)
 
+    def drvSts(self):
+        return 'DRV_ENBL {}'.format(self.drvStsVal)
+
     def drvEnbl(self, value):
-        if (value == 0):
+        if (value == 1):
             GPIO.output(DRIVER_ENABLE_PIN, GPIO.LOW)
+            self.drvStsVal = 1
         else:
             GPIO.output(DRIVER_ENABLE_PIN, GPIO.HIGH)
+            self.drvStsVal = 0
+
+        return 'DRV_ENBL {}'.format(self.drvStsVal)
+

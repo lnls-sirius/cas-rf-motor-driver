@@ -111,11 +111,30 @@ record(ai, "BO-05D:RF-P5Cav:Pl2Pos-Mon"){
     field(EGU,  "V")
 }
 
+record(bi, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts"){
+    field(PINI, "YES")
+    field(PHAS, "0")
+    field(DTYP, "stream")
+    field(INP,  "@MotorDriver.proto getEnbl $(PORT) $(A)")
+    field(ZNAM, "Disable")
+    field(ONAM, "Enable")
+}
 record(bo, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel"){
     field(DTYP, "stream")
     field(OUT,  "@MotorDriver.proto setEnbl $(PORT) $(A)")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
+    field(DISV, "1")
+    field(SDIS, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl_INIT.PACT")
+
+   field(FLNK, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts")
+}
+record(seq, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl_INIT"){
+	field(PINI, "YES")
+	field(PHAS, "1")
+	field(DLY1, "1")
+	field(DOL1, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts")
+	field(LNK1, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel PP")
 }
 
 # if ((self.getParam("$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon") == 1) or (self.getParam("$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon") == 1))
@@ -126,3 +145,5 @@ record(calcout, "$(P)$(R)RF-LLRFPlDrivers:DrAutoEnbl-Sel"){
     field(OOPT, "When Non-zero")
     field(OUT,  "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel.RVAL CA")
 }
+
+

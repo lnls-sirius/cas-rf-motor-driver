@@ -8,6 +8,11 @@ getData {
     in  "DATA [%f]";
 }
 
+getEnbl {
+    out "DRV_STS?";
+    in  "DRV_ENBL %i";
+}
+
 setEnbl {
     out "DRV_ENBL %i";
     in  "DRV_ENBL %i";
