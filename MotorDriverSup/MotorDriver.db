@@ -39,8 +39,8 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc"){
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc CP MSS")
-    field(ZNAM, "Disable")
-    field(ONAM, "Enable")
+    field(ONAM, "Disable")
+    field(ZNAM, "Enable")
 }
 
 # 1 if (ADC1_values[5] > 2.5) else 0
@@ -79,8 +79,8 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc"){
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc CP MSS")
-    field(ZNAM, "Disable")
-    field(ONAM, "Enable")
+    field(0NAM, "Disable")
+    field(ZNAM, "Enable")
 }
 
 # 1 if (ADC2_values[5] > 2.5) else 0

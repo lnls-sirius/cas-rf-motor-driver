@@ -10,6 +10,7 @@ Type=simple
 
 WorkingDirectory=/root/cas-rf-motor-driver/MotorDriverGPIO
 ExecStartPre=/bin/bash /root/cas-rf-motor-driver/MotorDriverGPIO/overlay.sh
+ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/python /root/cas-rf-motor-driver/MotorDriverGPIO/run.py
 
 StandardOutput=syslog
