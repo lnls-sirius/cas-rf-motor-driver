@@ -79,7 +79,7 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc"){
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc CP MSS")
-    field(0NAM, "Disable")
+    field(ONAM, "Disable")
     field(ZNAM, "Enable")
 }
 
