@@ -10,9 +10,8 @@ import time
 DRIVER_ENABLE_PIN = "P9_14"
 
 # Inicializa o pino de comando dos relês, desabilitando em seguida os drivers
-
 GPIO.setup(DRIVER_ENABLE_PIN,  GPIO.OUT)
-GPIO.output(DRIVER_ENABLE_PIN, GPIO.HIGH)
+GPIO.output(DRIVER_ENABLE_PIN, GPIO.LOW)
 
 class RF_MotorControllers_Driver():
 
