@@ -7,8 +7,6 @@ After=network-online.target
 Restart=always
 RestartSec=10
 Type=simple
-User=iocuser
-Group=ioc
 
 WorkingDirectory=/opt/cas-rf-motor-driver/MotorDriverGPIO
 ExecStart=/usr/local/bin/procServ -f --allow -L - 20201 /usr/bin/python /opt/cas-rf-motor-driver/MotorDriverGPIO/run.py
