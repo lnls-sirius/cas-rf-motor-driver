@@ -16,6 +16,18 @@ include $(TOP)/configure/CONFIG
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_template = <templatename>
 
+
+# Install .dbd and .db files
+DB += MotorDriver.db
+DB += MotorDriverData.db
+DB += MotorDriver.proto
+
+#=======================================
+.PHONY: db
+db:
+	python3 db.py > MotorDriverData.db
+
+
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
