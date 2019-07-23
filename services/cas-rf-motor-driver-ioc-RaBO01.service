@@ -10,10 +10,11 @@ After=cas-rf-motor-driver-gpio.service
 Restart=always
 RestartSec=10
 Type=simple
+User=iocuser
+Group=ioc
 
-WorkingDirectory=/root/cas-rf-motor-driver/iocBoot/iocMotorDriver/
-ExecStartPre=/bin/sleep 15
-ExecStart=/usr/bin/procServ -d --chdir /root/cas-rf-motor-driver/iocBoot/iocMotorDriver 20200 ./st-RaBO01.cmd
+WorkingDirectory=/opt/cas-rf-motor-driver/iocBoot/iocMotorDriver/
+ExecStart=/usr/local/bin/procServ -f --allow -L - --chdir /opt/cas-rf-motor-driver/iocBoot/iocMotorDriver 20200 ./st-RaBO01.cmd
 
 StandardOutput=syslog
 StandardError=syslog
