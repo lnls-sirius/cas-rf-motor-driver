@@ -9,7 +9,7 @@ getData {
 }
 
 getEnbl {
-    out "DRV_STS?";
+    out "DRV_ENBL?";
     in  "DRV_ENBL %i";
 }
 

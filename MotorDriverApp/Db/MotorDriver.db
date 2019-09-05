@@ -6,6 +6,11 @@ record(waveform, "$(P)$(R)Data-Mon"){
     field(FTVL, "FLOAT")
     field(NELM, "16")
 }
+record(calc, "$(P)$(R)Data-Mon_enbl"){
+   field(CALC, "A#0")
+   field(INPA, "$(P)$(R)Data-Mon.STAT CP")
+   field(INPB, "$(P)$(R)Data-Mon CP")
+}
 
 # ADC2_values[0]
 record(ai, "$(P)$(R)RF-LLRFPlDrivers:VoltPos5V-Mon"){
@@ -13,6 +18,9 @@ record(ai, "$(P)$(R)RF-LLRFPlDrivers:VoltPos5V-Mon"){
     field(DTYP, "Soft Channel")
     field(PREC, "3")
     field(EGU,  "V")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # (ADC2_values[2] - 0.5) / 0.4)
@@ -21,6 +29,9 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Current5V-Mon"){
     field(INPA, "$(P)$(R)ADC2_value2-Mon CP MSS")
     field(PREC, "3")
     field(EGU,  "A")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # ADC2_values[1] * 11
@@ -29,30 +40,45 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:VoltPos48V-Mon"){
     field(INPA, "$(P)$(R)ADC2_value1-Mon CP MSS")
     field(PREC, "3")
     field(EGU,  "V")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # 1 if (ADC1_values[4] > 2.5) else 0
 record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC1_value4-Mon CP MSS")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc CP MSS")
     field(ONAM, "Disable")
     field(ZNAM, "Enable")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # 1 if (ADC1_values[5] > 2.5) else 0
 record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC1_value5-Mon CP MSS")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon_calc CP MSS")
     field(ZNAM, "Fail")
     field(ONAM, "Normal")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # ((ADC1_values[3] - 0.5) / 0.4)
@@ -61,6 +87,9 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Current-Mon"){
     field(INPA, "$(P)$(R)ADC1_value3-Mon CP MSS")
     field(PREC, "3")
     field(EGU,  "A")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # ADC1_values[6]
@@ -69,30 +98,45 @@ record(ai, "BO-05D:RF-P5Cav:Pl1Pos-Mon"){
     field(DTYP, "Soft Channel")
     field(PREC, "3")
     field(EGU,  "V")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # 1 if (ADC2_values[4] > 2.5) else 0
 record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC2_value4-Mon CP MSS")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc CP MSS")
     field(ONAM, "Disable")
     field(ZNAM, "Enable")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # 1 if (ADC2_values[5] > 2.5) else 0
 record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC2_value5-Mon CP MSS")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon"){
     field(DTYP, "Raw Soft Channel")
     field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon_calc CP MSS")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # (ADC2_values[3] - 0.5) / 0.4
@@ -101,6 +145,9 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Current-Mon"){
     field(INPA, "$(P)$(R)ADC2_value3-Mon CP MSS")
     field(PREC, "3")
     field(EGU,  "A")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 # ADC2_values[6]
@@ -109,6 +156,9 @@ record(ai, "BO-05D:RF-P5Cav:Pl2Pos-Mon"){
     field(DTYP, "Soft Channel")
     field(PREC, "3")
     field(EGU,  "V")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
 record(bi, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts"){
@@ -118,6 +168,9 @@ record(bi, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts"){
     field(INP,  "@MotorDriver.proto getEnbl $(PORT) $(A)")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
+    field(DISV, "1")
+    field(DISS, "INVALID")
+    field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 record(bo, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel"){
     field(DTYP, "stream")
@@ -126,8 +179,7 @@ record(bo, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel"){
     field(ONAM, "Enable")
     field(DISV, "1")
     field(SDIS, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl_INIT.PACT")
-
-   field(FLNK, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts")
+    field(FLNK, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts")
 }
 record(seq, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl_INIT"){
 	field(PINI, "YES")
