@@ -56,7 +56,7 @@ class Comm():
 
                 if command == 'DATA?':
                     response = 'DATA ' + self.motor.data()
-                elif command == 'DRV_STS?':
+                elif command == 'DRV_ENBL?':
                     response = self.motor.drvSts()
                 else :
                     try:
