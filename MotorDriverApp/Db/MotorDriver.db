@@ -13,7 +13,7 @@ record(calc, "$(P)$(R)Data-Mon_enbl"){
 }
 
 # ADC2_values[0]
-record(ai, "$(P)$(R)RF-LLRFPlDrivers:VoltPos5V-Mon"){
+record(ai, "$(P)$(R)RF-CavPlDrivers:VoltPos5V-Mon"){
     field(INP,  "$(P)$(R)ADC2_value0-Mon CP MSS")
     field(DTYP, "Soft Channel")
     field(PREC, "3")
@@ -24,7 +24,7 @@ record(ai, "$(P)$(R)RF-LLRFPlDrivers:VoltPos5V-Mon"){
 }
 
 # (ADC2_values[2] - 0.5) / 0.4)
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Current5V-Mon"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Current5V-Mon"){
     field(CALC, "(A - 0.5)/0.4")
     field(INPA, "$(P)$(R)ADC2_value2-Mon CP MSS")
     field(PREC, "3")
@@ -35,7 +35,7 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:Current5V-Mon"){
 }
 
 # ADC2_values[1] * 11
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:VoltPos48V-Mon"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:VoltPos48V-Mon"){
     field(CALC, "A*11")
     field(INPA, "$(P)$(R)ADC2_value1-Mon CP MSS")
     field(PREC, "3")
@@ -46,16 +46,16 @@ record(calc, "$(P)$(R)RF-LLRFPlDrivers:VoltPos48V-Mon"){
 }
 
 # 1 if (ADC1_values[4] > 2.5) else 0
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Dr1Enbl-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC1_value4-Mon CP MSS")
     field(DISV, "1")
     field(DISS, "INVALID")
     field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
-record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon"){
+record(bi, "$(P)$(R)RF-CavPlDrivers:Dr1Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
-    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon_calc CP MSS")
+    field(INP,  "$(P)$(R)RF-CavPlDrivers:Dr1Enbl-Mon_calc CP MSS")
     field(ONAM, "Disable")
     field(ZNAM, "Enable")
     field(DISV, "1")
@@ -64,16 +64,16 @@ record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Enbl-Mon"){
 }
 
 # 1 if (ADC1_values[5] > 2.5) else 0
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon_calc"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Dr1Flt-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC1_value5-Mon CP MSS")
     field(DISV, "1")
     field(DISS, "INVALID")
     field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
-record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon"){
+record(bi, "$(P)$(R)RF-CavPlDrivers:Dr1Flt-Mon"){
     field(DTYP, "Raw Soft Channel")
-    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon_calc CP MSS")
+    field(INP,  "$(P)$(R)RF-CavPlDrivers:Dr1Flt-Mon_calc CP MSS")
     field(ZNAM, "Fail")
     field(ONAM, "Normal")
     field(DISV, "1")
@@ -82,7 +82,7 @@ record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon"){
 }
 
 # ((ADC1_values[3] - 0.5) / 0.4)
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr1Current-Mon"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Dr1Current-Mon"){
     field(CALC, "(A - 0.5)/0.4")
     field(INPA, "$(P)$(R)ADC1_value3-Mon CP MSS")
     field(PREC, "3")
@@ -104,16 +104,16 @@ record(ai, "BO-05D:RF-P5Cav:Pl1Pos-Mon"){
 }
 
 # 1 if (ADC2_values[4] > 2.5) else 0
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Dr2Enbl-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC2_value4-Mon CP MSS")
     field(DISV, "1")
     field(DISS, "INVALID")
     field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
-record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon"){
+record(bi, "$(P)$(R)RF-CavPlDrivers:Dr2Enbl-Mon"){
     field(DTYP, "Raw Soft Channel")
-    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon_calc CP MSS")
+    field(INP,  "$(P)$(R)RF-CavPlDrivers:Dr2Enbl-Mon_calc CP MSS")
     field(ONAM, "Disable")
     field(ZNAM, "Enable")
     field(DISV, "1")
@@ -122,16 +122,16 @@ record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Enbl-Mon"){
 }
 
 # 1 if (ADC2_values[5] > 2.5) else 0
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon_calc"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Dr2Flt-Mon_calc"){
     field(CALC, "(A>2.5)?1:0")
     field(INPA, "$(P)$(R)ADC2_value5-Mon CP MSS")
     field(DISV, "1")
     field(DISS, "INVALID")
     field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
-record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon"){
+record(bi, "$(P)$(R)RF-CavPlDrivers:Dr2Flt-Mon"){
     field(DTYP, "Raw Soft Channel")
-    field(INP,  "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon_calc CP MSS")
+    field(INP,  "$(P)$(R)RF-CavPlDrivers:Dr2Flt-Mon_calc CP MSS")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
     field(DISV, "1")
@@ -140,7 +140,7 @@ record(bi, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon"){
 }
 
 # (ADC2_values[3] - 0.5) / 0.4
-record(calc, "$(P)$(R)RF-LLRFPlDrivers:Dr2Current-Mon"){
+record(calc, "$(P)$(R)RF-CavPlDrivers:Dr2Current-Mon"){
     field(CALC, "(A - 0.5)/0.4")
     field(INPA, "$(P)$(R)ADC2_value3-Mon CP MSS")
     field(PREC, "3")
@@ -161,7 +161,7 @@ record(ai, "BO-05D:RF-P5Cav:Pl2Pos-Mon"){
     field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
 
-record(bi, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts"){
+record(bi, "$(P)$(R)RF-CavPlDrivers:DrEnbl-Sts"){
     field(PINI, "YES")
     field(PHAS, "0")
     field(DTYP, "stream")
@@ -172,30 +172,30 @@ record(bi, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts"){
     field(DISS, "INVALID")
     field(SDIS, "$(P)$(R)Data-Mon_enbl")
 }
-record(bo, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel"){
+record(bo, "$(P)$(R)RF-CavPlDrivers:DrEnbl-Sel"){
     field(DTYP, "stream")
     field(OUT,  "@MotorDriver.proto setEnbl $(PORT) $(A)")
     field(ZNAM, "Disable")
     field(ONAM, "Enable")
     field(DISV, "1")
-    field(SDIS, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl_INIT.PACT")
-    field(FLNK, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts")
+    field(SDIS, "$(P)$(R)RF-CavPlDrivers:DrEnbl_INIT.PACT")
+    field(FLNK, "$(P)$(R)RF-CavPlDrivers:DrEnbl-Sts")
 }
-record(seq, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl_INIT"){
+record(seq, "$(P)$(R)RF-CavPlDrivers:DrEnbl_INIT"){
 	field(PINI, "YES")
 	field(PHAS, "1")
 	field(DLY1, "1")
-	field(DOL1, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sts")
-	field(LNK1, "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel PP")
+	field(DOL1, "$(P)$(R)RF-CavPlDrivers:DrEnbl-Sts")
+	field(LNK1, "$(P)$(R)RF-CavPlDrivers:DrEnbl-Sel PP")
 }
 
-# if ((self.getParam("$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon") == 1) or (self.getParam("$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon") == 1))
-record(calcout, "$(P)$(R)RF-LLRFPlDrivers:DrAutoEnbl-Sel"){
+# if ((self.getParam("$(P)$(R)RF-CavPlDrivers:Dr1Flt-Mon") == 1) or (self.getParam("$(P)$(R)RF-CavPlDrivers:Dr2Flt-Mon") == 1))
+record(calcout, "$(P)$(R)RF-CavPlDrivers:DrAutoEnbl-Sel"){
     field(CALC, "A=1||B=1")
-    field(INPA, "$(P)$(R)RF-LLRFPlDrivers:Dr1Flt-Mon CP MSS")
-    field(INPB, "$(P)$(R)RF-LLRFPlDrivers:Dr2Flt-Mon CP MSS")
+    field(INPA, "$(P)$(R)RF-CavPlDrivers:Dr1Flt-Mon CP MSS")
+    field(INPB, "$(P)$(R)RF-CavPlDrivers:Dr2Flt-Mon CP MSS")
     field(OOPT, "When Non-zero")
-    field(OUT,  "$(P)$(R)RF-LLRFPlDrivers:DrEnbl-Sel.RVAL CA")
+    field(OUT,  "$(P)$(R)RF-CavPlDrivers:DrEnbl-Sel.RVAL CA")
 }
 
 
